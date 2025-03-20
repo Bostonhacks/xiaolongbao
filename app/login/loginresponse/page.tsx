@@ -1,3 +1,4 @@
+import AuthContextUpdater from '@/app/components/AuthContextUpdater';
 import LoginResponseDisplay from '../../components/LoginResponseDisplay';
 
 
@@ -6,20 +7,27 @@ const LoginResponsePage = async({
 }: {
     searchParams: { [key: string]: string | string[] | undefined }
 }) => {
-    const success = searchParams.success === 'true';
-    const message = searchParams.message as string || '';
+    const params = await searchParams;
+    const success = params.success === 'true';
+    const message = params.message as string || '';
     let user = null;
 
     try {
-        if (searchParams.user) {
-            user = JSON.parse(searchParams.user as string);
+        if (params.user) {
+            user = JSON.parse(params.user as string);
 
         }
     } catch (error) {
         console.error('Failed to parse user data:', error);
     }
 
-    return <LoginResponseDisplay success={success} message={message} user={user} />;
+    return (
+        <>
+            <AuthContextUpdater user={user} />
+            <LoginResponseDisplay success={success} message={message} user={user} />;
+        </>
+   
+    )
 }
 
 export default LoginResponsePage;

@@ -1,16 +1,20 @@
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
 
     // get access_token cookie
     const cookieStore = await cookies();
     const accessToken = cookieStore.get('access_token');
-   
+    const params = request.nextUrl.searchParams;
+    // const email = params.get("email");
+    const userId = params.get("id");
+
+
     try {
-        const response = await fetch(`${process.env.API_URL}/user/me`, {
+        const response = await fetch(`${process.env.API_URL}/user?id=${userId}`, {
             headers: {
                 "Cookie": `access_token=${accessToken?.value || ""}`
             },

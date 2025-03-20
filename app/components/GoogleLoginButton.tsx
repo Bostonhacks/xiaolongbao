@@ -2,9 +2,12 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useAuth } from '../providers';
 
 export const GoogleLoginButton = () => {
   const [isLoading, setIsLoading] = useState(false);
+
+  const { login, user } = useAuth();
   
   
 
@@ -14,29 +17,34 @@ export const GoogleLoginButton = () => {
   const handleGoogleLogin = async() => {
     try {
         setIsLoading(true);
-        // call BFF api to initiate Google login
-        const res = await fetch(`/api/auth/login`, 
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                authType: 'GOOGLE',
-                redirect_uri: `${window.location.origin}/login/loginresponse`
-            })
-        }
-        );
+        // // call BFF api to initiate Google login
+        // const res = await fetch(`/api/auth/login`, 
+        // {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         authType: 'GOOGLE',
+        //         redirect_uri: `${window.location.origin}/login/loginresponse`
+        //     })
+        // }
+        // );
 
-        if (res.ok) {
-            const data = await res.json();
-            window.location.href = data?.url;
-        }
-    
-        setIsLoading(false);
+        // if (res.ok) {
+        //     const data = await res.json();
+        //     window.location.href = data?.url;
+        // }
+
+        const response = await login({
+            authType: 'GOOGLE',
+            redirect_uri: `${window.location.origin}/login/loginresponse`
+        });
+
     }
     catch (error) {
         console.error('Error during Google login:', error);
+    } finally {
         setIsLoading(false);
     }
 
@@ -46,7 +54,7 @@ export const GoogleLoginButton = () => {
     <button
       onClick={handleGoogleLogin}
       disabled={isLoading}
-      className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      className="flex items-center justify-center px-2 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
     >
       {isLoading ? (
         <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

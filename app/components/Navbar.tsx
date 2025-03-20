@@ -3,63 +3,62 @@ import { MobileMenuButton } from './MobileMenuButton';
 import { getAuthStatus } from '../lib/authStatus';
 import { GoogleLoginButton } from './GoogleLoginButton';
 import LogoutButton from './LogoutButton';
+import NavbarItems from './NavbarItems';
+import { navItems, navItemsAuthenticated } from '../config/constants';
 
 export const Navbar = async() => {
 
   const { isAuthenticated } = await getAuthStatus();
 
-  const navItems = [
-    { label: 'Home', path: '/' },
-    { label: 'Attach Account', path: '/about' },
-    { label: 'Services', path: '/services' },
-    { label: 'Contact', path: '/contact' },
-  ];
-
   return (
-    <nav className="bg-white shadow-md fixed w-full z-20 top-0 left-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo/Brand */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold text-gray-800">XiaoLongBao</span>
-            </Link>
-          </div>
-
-          {/* Desktop Navigation - Server-side rendered */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-300"
-                  prefetch={false}
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              { 
-              isAuthenticated ? (
-                <div className="flex items-center justify-center space-x-4">
-                  <Link href="/profile" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-300">
-                    Profile
-                  </Link>
-                  <LogoutButton />
-                </div>
-
-              ) : <GoogleLoginButton />
-              }
-            </div>
-          </div>
-
-          {/* Mobile menu button - Client component */}
-          <div className="md:hidden">
-            <MobileMenuButton navItems={navItems} />
-          </div>
+    <>
+      {/* Mobile top navbar - shown on small screens */}
+      <nav className="md:hidden bg-primary-dark shadow-md fixed w-full z-20 top-0 left-0">
+        <div className="px-4 py-3 flex justify-between items-center">
+          <Link href="/" className="flex items-center">
+            <span className="text-xl font-bold text-gray-800">XLB</span>
+          </Link>
+          
+          {
+            isAuthenticated ? (
+              <MobileMenuButton navItems={navItemsAuthenticated} />
+            ) : (
+              <MobileMenuButton navItems={navItems} />
+            )
+          }
+          
         </div>
-      </div>
-    </nav>
+      </nav>
+      
+      {/* Desktop sidebar - hidden on small screens */}
+      <nav className="hidden md:flex flex-col bg-primary-dark shadow-lg fixed h-full w-50 z-20 top-0 left-0">
+        <div className="p-4">
+          <Link href="/" className="flex items-center">
+            <span className="text-xl font-bold text-text-primary">XiaoLongBao</span>
+          </Link>
+        </div>
+        
+        { 
+          // Show different nav items based on authentication status
+          isAuthenticated ? (
+            <NavbarItems items={navItemsAuthenticated} />
+          ) : (
+            <NavbarItems items={navItems} />
+          )
+        }
+
+        
+        <div className="p-4 border-t">
+          {isAuthenticated ? (
+            <div className="flex flex-col space-y-3">
+              <Link href="/profile" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition-colors duration-300">
+                Profile
+              </Link>
+              <LogoutButton />
+            </div>
+          ) : <GoogleLoginButton />}
+        </div>
+      </nav>
+    </>
   );
 }

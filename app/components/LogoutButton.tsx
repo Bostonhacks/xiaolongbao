@@ -12,7 +12,7 @@ const LogoutButton = () => {
     }
 
     return (
-        <button className="hover:cursor-pointer px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-300" onClick={logout}>Logout</button>
+        <button className="text-start hover:cursor-pointer px-3 py-2 rounded-md text-sm font-medium text-text-primary hover:bg-gray-100 hover:text-gray-900 transition-colors duration-300" onClick={logout}>Logout</button>
     )
 }
 
