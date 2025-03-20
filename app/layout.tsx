@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          <main className="md:ml-50 ml-0 mt-15 md:mt-0">
+          <main className="md:ml-40 ml-0 mt-15 md:mt-0">
             {children}
 
           </main>

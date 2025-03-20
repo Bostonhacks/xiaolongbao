@@ -24,7 +24,7 @@ const NavbarItems = ({ items }: NavbarItemsProps) => {
                     key={item.path}
                     href={item.path}
                     onClick={handleClick}
-                    className={`${activePath === item.path ? "bg-gray-100" : ""} px-3 py-2 rounded-md text-sm font-medium text-text-primary hover:bg-gray-100 hover:text-gray-900 transition-colors duration-300`}
+                    className={`${activePath === item.path ? "bg-gray-100" : ""} px-3 py-2 rounded-md text-sm font-medium text-text-primary hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200`}
                     prefetch={false}
                 >
                 {item.label}

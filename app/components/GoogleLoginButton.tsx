@@ -71,7 +71,7 @@ export const GoogleLoginButton = () => {
           </g>
         </svg>
       )}
-      {isLoading ? 'Redirecting...' : 'Sign in with Google'}
+      {isLoading ? 'Redirecting...' : 'Sign In'}
     </button>
   );
 }

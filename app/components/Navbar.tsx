@@ -31,7 +31,7 @@ export const Navbar = async() => {
       </nav>
       
       {/* Desktop sidebar - hidden on small screens */}
-      <nav className="hidden md:flex flex-col bg-primary-dark shadow-lg fixed h-full w-50 z-20 top-0 left-0">
+      <nav className="hidden md:flex flex-col bg-primary-dark shadow-lg fixed h-full w-40 z-20 top-0 left-0">
         <div className="p-4">
           <Link href="/" className="flex items-center">
             <span className="text-xl font-bold text-text-primary">XiaoLongBao</span>
@@ -51,7 +51,7 @@ export const Navbar = async() => {
         <div className="p-4 border-t">
           {isAuthenticated ? (
             <div className="flex flex-col space-y-3">
-              <Link href="/profile" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition-colors duration-300">
+              <Link href="/profile" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 hover:text-gray-900 transition-colors duration-100">
                 Profile
               </Link>
               <LogoutButton />

@@ -92,7 +92,7 @@ export const MobileMenuButton = ({ navItems }: MobileMenuButtonProps) => {
           ))}
 
           <div 
-            className={`transform transition-all duration-300 ease-in-out ${
+            className={`transform transition-all duration-100 ease-in-out ${
               isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
             }`} 
             style={{ transitionDelay: `${navItems.length * 50}ms` }}
