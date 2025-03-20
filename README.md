@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+# Auth
+
+Auth goes as follows. 
+1. User clicks google login
+2. This calls the Auth provider function "login()". 
+3. login() calls the BFF /api/auth/login route
+   1. This route handles the call to our actual API
+4. API redirects user to /login/loginresponse
+5. Login response reads the queries for the user's data
+6. Auth provider function "refreshUser()" is called to set the context variable "user" to the user specified.
+   1. The user's data is held in sessionStorage
+   2. This user can then be accessed anywhere using the "user" variable of the auth context.
+   3. Auth context is handled via a client component which wraps as a provider children components.
