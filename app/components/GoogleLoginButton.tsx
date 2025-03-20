@@ -5,16 +5,32 @@ import Image from 'next/image';
 
 export const GoogleLoginButton = () => {
   const [isLoading, setIsLoading] = useState(false);
+  
+  
+
+  // get base url
+
 
   const handleGoogleLogin = async() => {
     try {
         setIsLoading(true);
-        // call api to initiate Google login
-        const res = await fetch('/api/auth/google/login');
+        // call BFF api to initiate Google login
+        const res = await fetch(`/api/auth/login`, 
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                authType: 'GOOGLE',
+                redirect_uri: `${window.location.origin}/login/loginresponse`
+            })
+        }
+        );
 
         if (res.ok) {
             const data = await res.json();
-            window.location.href = data.url;
+            window.location.href = data?.url;
         }
     
         setIsLoading(false);

@@ -1,8 +1,13 @@
 import Link from 'next/link';
 import { MobileMenuButton } from './MobileMenuButton';
+import { getAuthStatus } from '../lib/authStatus';
 import { GoogleLoginButton } from './GoogleLoginButton';
+import LogoutButton from './LogoutButton';
 
-export const Navbar = () => {
+export const Navbar = async() => {
+
+  const { isAuthenticated } = await getAuthStatus();
+
   const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Attach Account', path: '/about' },
@@ -34,7 +39,18 @@ export const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
-              <GoogleLoginButton />
+
+              { 
+              isAuthenticated ? (
+                <div className="flex items-center justify-center space-x-4">
+                  <Link href="/profile" className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-300">
+                    Profile
+                  </Link>
+                  <LogoutButton />
+                </div>
+
+              ) : <GoogleLoginButton />
+              }
             </div>
           </div>
 
