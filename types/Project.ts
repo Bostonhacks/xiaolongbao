@@ -16,5 +16,6 @@ export interface Project {
     isWinner: boolean;
     prizeWon?: string;
     placement?: number;
-    scores: Score[];
+    scores?: Score[];
 }
+

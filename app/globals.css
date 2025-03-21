@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-dark: #1a202c;
+  /* default dark theme */
+  --color-primary: #1a202c;
   --color-text-primary: white;
+  --color-secondary: #2d3748;
+  --color-tertiary: #4a5568;
+  --color-accent: #63b3ed;
+  /* --font-sans: 'Inter', sans-serif; */
+  --font-mono: 'Fira Code', monospace;
 }
 
 @layer base {
