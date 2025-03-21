@@ -21,8 +21,8 @@ export default function LoginResponseDisplay({
         if (success && user) {
             const timer = setTimeout(() => {
                 // refresh the page and push to the dashboard
-                window.location.reload();
-                router.push('/');
+                window.location.href = "/";
+                // router.push('/');
             }, 3000);
             
             return () => clearTimeout(timer);
