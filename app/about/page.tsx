@@ -114,7 +114,8 @@ const AboutPage = () => {
               BostonHacks began as a small, local hackathon organized by a group of tech enthusiasts who were passionate about fostering innovation in their community. With just 50 participants, the first event focused on solutions for local businesses.
             </p>
             <p className="text-gray-600 dark:text-gray-400 italic">
-              "We never imagined how quickly our little hackathon would grow. The energy and creativity from that first event showed us we had tapped into something special." — Alex Chen, Co-founder
+              Quote goes here
+              {/* "We never imagined how quickly our little hackathon would grow. The energy and creativity from that first event showed us we had tapped into something special." — Alex Chen, Co-founder */}
             </p>
           </div>
           
@@ -125,7 +126,8 @@ const AboutPage = () => {
               By our second year, BostonHacks had gained national attention. The event expanded to 200 participants from across the country, with a focus on sustainability challenges. Our winning project—an AI-powered waste sorting system—went on to secure venture funding.
             </p>
             <p className="text-gray-600 dark:text-gray-400 italic">
-              "Seeing our participants' projects make real-world impact validated everything we were working toward." — Maya Rodriguez, Event Director
+              Quote goes here
+              {/* "Seeing our participants' projects make real-world impact validated everything we were working toward." — Maya Rodriguez, Event Director */}
             </p>
           </div>
           
@@ -133,10 +135,12 @@ const AboutPage = () => {
             <div className="absolute -left-10 mt-1.5 h-6 w-6 rounded-full border-4 border-white dark:border-gray-900 bg-blue-500"></div>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">2024: Global Expansion</h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              BostonHacks went international, hosting participants from 15 countries. Our focus expanded to include healthcare innovation, with remote participation options and increased access to mentorship from industry leaders. Corporate partnerships helped provide over $50,000 in prizes.
+              Some more info
+              {/* BostonHacks went international, hosting participants from 15 countries. Our focus expanded to include healthcare innovation, with remote participation options and increased access to mentorship from industry leaders. Corporate partnerships helped provide over $50,000 in prizes. */}
             </p>
             <p className="text-gray-600 dark:text-gray-400 italic">
-              "The diversity of perspectives that came with our global expansion led to some truly groundbreaking solutions." — Jamal Washington, Community Manager
+              Quote goes here
+              {/* "The diversity of perspectives that came with our global expansion led to some truly groundbreaking solutions." — Jamal Washington, Community Manager */}
             </p>
           </div>
           
@@ -144,10 +148,10 @@ const AboutPage = () => {
             <div className="absolute -left-10 mt-1.5 h-6 w-6 rounded-full border-4 border-white dark:border-gray-900 bg-blue-500"></div>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">2025: BostonHacks Today</h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Now in our fourth year, BostonHacks has evolved into a premier innovation event, attracting over 500 participants worldwide. We've expanded our tracks to include sustainability, healthcare, education, accessibility, and emerging technologies, with year-round community events and workshops.
+              Now in our fourth year, BostonHacks has evolved into a premier innovation event, attracting over 500 participants worldwide. We&apos;ve expanded our tracks to include sustainability, healthcare, education, accessibility, and emerging technologies, with year-round community events and workshops.
             </p>
             <p className="text-gray-600 dark:text-gray-400 italic">
-              "What makes BostonHacks special isn't just the technology—it's the community and connections that last well beyond the event itself." — Sarah Kim, CEO
+              {/* "What makes BostonHacks special isn't just the technology—it's the community and connections that last well beyond the event itself." — Sarah Kim, CEO */}
             </p>
           </div>
         </div>
@@ -255,7 +259,7 @@ const AboutPage = () => {
         <div className="bg-blue-600 dark:bg-blue-800 text-white rounded-xl p-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Join the BostonHacks Community</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Whether you're a coder, designer, entrepreneur, or creative thinker, there's a place for you in our community.
+            Whether you&apos;re a coder, designer, entrepreneur, or creative thinker, there&apos;s a place for you in our community.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link 

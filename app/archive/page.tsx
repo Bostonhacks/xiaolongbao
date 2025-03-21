@@ -366,7 +366,8 @@ export default async function ArchivePage({
                   {selectedYear} Winners
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {winners.map(project => (
+                  {/* @eslint-disable-next-line */}
+                  {winners.map((project: Project) => (
                     <div 
                       key={project.id}
                       className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300"
@@ -393,7 +394,7 @@ export default async function ArchivePage({
                         <div className="mb-4">
                           <p className="text-sm text-gray-500 dark:text-gray-400 mb-2 font-medium">Team: {project.teamName}</p>
                           <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech: any) => (
+                            {project.technologies.map((tech: string) => (
                               <span key={tech} className="inline-block bg-gray-100 dark:bg-gray-700 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 dark:text-gray-300">
                                 {tech}
                               </span>

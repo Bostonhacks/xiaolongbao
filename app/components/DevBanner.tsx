@@ -26,7 +26,7 @@ const DevBanner = () => {
             </div>
           </div>
           <p className="text-white text-sm font-medium">
-            <span className="font-bold">🚧 Under Construction:</span> We're building this platform. Many parts are not functional or have fake data.
+            <span className="font-bold">🚧 Under Construction:</span> We&apos;re building this platform. Many parts are not functional or have fake data.
           </p>
         </div>
         <button 

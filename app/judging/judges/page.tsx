@@ -1,6 +1,7 @@
 import JudgeStatus from '@/app/components/judging/JudgeStatus'
 import React from 'react'
 import { Metadata } from 'next'
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "Judging Panel | Judges",
@@ -71,7 +72,7 @@ export default async function JudgesPage() {
               Judges Panel
             </h1>
             <p className="mt-2 text-lg text-gray-500 dark:text-gray-400">
-              This year's judging panel for the event
+              This year&apos;s judging panel for the event
             </p>
           </div>
           <div className="mt-4 md:mt-0 flex-shrink-0">
@@ -107,7 +108,7 @@ export default async function JudgesPage() {
               <div className="p-6">
                 <div className="flex items-center space-x-4">
                   {judge.avatar ? (
-                    <img 
+                    <Image 
                       src={judge.avatar} 
                       alt={judge.name}
                       className="h-12 w-12 rounded-full object-cover" 

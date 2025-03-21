@@ -22,17 +22,17 @@ export const MobileMenuButton = ({ navItems }: MobileMenuButtonProps) => {
   const { user } = useAuth();
 
   // Prevent scrolling when menu is open
-  // useEffect(() => {
-  //   if (isMenuOpen) {
-  //     document.body.style.overflow = 'hidden';
-  //   } else {
-  //     document.body.style.overflow = '';
-  //   }
+  useEffect(() => {
+    // if (isMenuOpen) {
+    //   document.body.style.overflow = 'hidden';
+    // } else {
+    //   document.body.style.overflow = '';
+    // }
     
-  //   return () => {
-  //     document.body.style.overflow = '';
-  //   };
-  // }, [isMenuOpen]);
+    // return () => {
+    //   document.body.style.overflow = '';
+    // };
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

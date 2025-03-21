@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -133,7 +133,7 @@ export default function Home() {
                 BostonHacks 2025: Building the Future
               </h2>
               <p className="text-gray-700 dark:text-gray-300 mb-6">
-                Join us for our biggest hackathon yet! This year's event features exciting tracks in AI, sustainability, healthcare, education, and more. With over $50,000 in prizes and opportunities to connect with industry leaders, BostonHacks 2025 is not to be missed.
+                Join us for our biggest hackathon yet! This year&apos;s event features exciting tracks in AI, sustainability, healthcare, education, and more. With over $50,000 in prizes and opportunities to connect with industry leaders, BostonHacks 2025 is not to be missed.
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-center">
@@ -253,7 +253,7 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">Ready to dive in?</h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
-            Whether you're participating as a hacker, volunteering as a judge, or just exploring innovative projects, Xiaolongbao has something for you.
+            Whether you&apos;re participating as a hacker, volunteering as a judge, or just exploring innovative projects, Xiaolongbao has something for you.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Link href="/register" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-medium transition-colors">

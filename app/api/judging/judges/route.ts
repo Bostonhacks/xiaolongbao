@@ -1,11 +1,11 @@
 
 
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 // GET /api/judging/judges
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
         // get access_token cookie
         const cookieStore = await cookies();

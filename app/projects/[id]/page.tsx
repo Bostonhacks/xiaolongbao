@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Metadata, ResolvingMetadata } from 'next'
+import { Metadata } from 'next'
 import { Project as ProjectBase} from '@/types/Project'
 
 interface Project extends Omit<ProjectBase, 'members'> {
@@ -14,8 +14,7 @@ interface Project extends Omit<ProjectBase, 'members'> {
 
 // Generate metadata for the project page
 export async function generateMetadata(
-  { params }: { params: { id: string } },
-  parent: ResolvingMetadata
+  { params }: { params: { id: string } }
 ): Promise<Metadata> {
   try {
     const id = (await params).id;
@@ -31,6 +30,7 @@ export async function generateMetadata(
       },
     };
   } catch (error) {
+    console.error('Failed to load project:', error);
     return {
       title: 'Project Not Found',
       description: 'The requested project could not be found.',

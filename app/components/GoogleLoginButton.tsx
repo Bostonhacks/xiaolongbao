@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useAuth } from '../providers';
 
 export const GoogleLoginButton = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const { login, user } = useAuth();
+  const { login } = useAuth();
   
   
 
@@ -36,10 +36,11 @@ export const GoogleLoginButton = () => {
         //     window.location.href = data?.url;
         // }
 
-        const response = await login({
+        await login({
             authType: 'GOOGLE',
             redirect_uri: `${window.location.origin}/login/loginresponse`
         });
+
 
     }
     catch (error) {

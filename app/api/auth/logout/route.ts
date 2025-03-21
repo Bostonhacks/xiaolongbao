@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 // using BFF pattern (backend for frontend)
-export async function POST(request: Request): Promise<NextResponse> {
+export async function POST(): Promise<NextResponse> {
     try {
         const backendUrl = process.env.API_URL || "http://localhost:8000";
     

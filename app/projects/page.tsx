@@ -20,12 +20,13 @@ export const metadata: Metadata = {
 
 
 // Mock fetch function - replace with real API call
-
 async function getProjects(year: number = 2025): Promise<Project[]> {
   // In a real app, call an API endpoint
   // const res = await fetch(`${process.env.API_URL}/api/projects?year=${year}`, { cache: 'no-store' });
   // if (!res.ok) throw new Error('Failed to fetch projects');
   // return res.json();
+  console.log(year);
+  
   
   // Mock data for demonstration
   return [

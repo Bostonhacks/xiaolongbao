@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const ProfilePage = () => {
-  const { user, refreshUser } = useAuth();
+  const { user } = useAuth();
   const [userProfile, setUserProfile] = useState({} as User);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("profile");
@@ -409,7 +409,7 @@ const ProfilePage = () => {
                     </svg>
                     <h3 className="mt-2 text-sm font-medium text-gray-900 dark:text-gray-200">No submissions</h3>
                     <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                      You haven't made any submissions yet.
+                      You haven&apos;t made any submissions yet.
                     </p>
                   </div>
                 )}

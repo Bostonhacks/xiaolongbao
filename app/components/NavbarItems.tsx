@@ -17,8 +17,8 @@ const NavbarItems = ({ linkGroups }: NavbarItemsProps) => {
 
     const [activePath, setActivePath] = useState(usePathname() || "/");
 
-    const handleClick = (e: any) => {
-        setActivePath(e.target.pathname);
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        setActivePath((e.target as HTMLAnchorElement)?.pathname);
     }
 
 

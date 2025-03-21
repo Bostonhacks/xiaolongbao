@@ -1,8 +1,9 @@
 "use client"
 import { useEffect } from "react";
 import { useAuth } from "../providers";
+import { User } from "@/types/User";
 
-const AuthContextUpdater = ({ user }: { user: any | null }) => {
+const AuthContextUpdater = ({ user }: { user: User }) => {
     const { refreshUser } = useAuth();
   
     useEffect(() => {

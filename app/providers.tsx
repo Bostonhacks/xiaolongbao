@@ -148,6 +148,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
           // Still refresh in background to validate
           refreshUser(true);
         } catch (e) {
+          console.log(e);
           // If parsing fails, clear and do normal refresh
           sessionStorage.removeItem('user');
           refreshUser(true);

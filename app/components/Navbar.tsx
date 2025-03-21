@@ -20,14 +20,14 @@ export const Navbar = async() => {
           <Link href="/" className="flex items-center">
             <span className="text-xl font-bold text-text-primary">XLB</span>
           </Link>
-{/*           
+          
           {
             isAuthenticated ? (
-              <MobileMenuButton navItems={navItemsAuthenticated} />
+              <MobileMenuButton navItems={navItemsAuthenticated[0]} />
             ) : (
-              <MobileMenuButton navItems={navItems} />
+              <MobileMenuButton navItems={navItems[0]} />
             )
-          } */}
+          }
           
         </div>
       </nav>

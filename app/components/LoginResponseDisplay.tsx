@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { User } from '@/types/User';
 
 export default function LoginResponseDisplay({ 
     success, 
@@ -10,7 +11,7 @@ export default function LoginResponseDisplay({
 }: { 
     success: boolean; 
     message: string; 
-    user: any; 
+    user: User | null; 
 }) {
 
     const router = useRouter();
