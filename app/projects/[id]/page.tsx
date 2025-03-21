@@ -14,7 +14,7 @@ interface Project extends Omit<ProjectBase, 'members'> {
 
 // Generate metadata for the project page
 export async function generateMetadata(
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<Metadata> {
   try {
     const id = (await params).id;
@@ -104,7 +104,7 @@ async function getProject(id: string): Promise<Project> {
   return project;
 }
 
-export default async function ProjectDetailPage({ params }: { params: { id: string }}) {
+export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }>}) {
   try {
     const id = (await params).id;
 

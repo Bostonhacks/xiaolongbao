@@ -5,7 +5,7 @@ import LoginResponseDisplay from '../../components/LoginResponseDisplay';
 const LoginResponsePage = async({
     searchParams,
 }: {
-    searchParams: { [key: string]: string | string[] | undefined }
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) => {
     const params = await searchParams;
     const success = params.success === 'true';

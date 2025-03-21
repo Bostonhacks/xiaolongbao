@@ -14,8 +14,8 @@ export interface Project {
     devpostUrl?: string;
     teamName: string;
     isWinner: boolean;
-    prizeWon?: string;
-    placement?: number;
+    prizeWon?: string | null;
+    placement?: number | null;
     scores?: Score[];
 }
 

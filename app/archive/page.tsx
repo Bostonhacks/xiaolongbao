@@ -8,7 +8,7 @@ interface Project extends Omit<ProjectBase, 'members'> {
     members: {
         email: string;
         id: string;
-        name: string;
+        name?: string;
     }[];
 }
 
@@ -143,8 +143,8 @@ async function getProjects(year: number): Promise<Project[]> {
         "devpostUrl": "https://devpost.com/foodshare",
         "teamName": "Zero Waste",
         "isWinner": false,
-        "prizeWon": null,
-        "placement": null,
+        "prizeWon": "null",
+        "placement": 3,
         "members": [
           {
             "email": "carlos.rodriguez@example.com",
@@ -211,8 +211,8 @@ async function getProjects(year: number): Promise<Project[]> {
         "devpostUrl": "https://devpost.com/citymapper",
         "teamName": "Urban Designers",
         "isWinner": false,
-        "prizeWon": null,
-        "placement": null,
+        "prizeWon": "null",
+        "placement": 3,
         "members": [
           {
             "email": "samantha.brown@example.com",
@@ -291,7 +291,7 @@ function groupProjectsByTrack(projects: Project[]): Record<string, Project[]> {
 export default async function ArchivePage({ 
   searchParams 
 }: { 
-  searchParams: { year?: string } 
+  searchParams: Promise<{ year?: string }> 
 }) {
   // Get the selected year from URL params or default to the latest year
   const availableYears = await getAvailableYears();

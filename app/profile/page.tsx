@@ -98,9 +98,9 @@ const ProfilePage = () => {
               {/* Profile picture */}
               <div className="relative mb-6 md:mb-8 md:-mt-16">
                 <div className="h-24 w-24 md:h-32 md:w-32 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-4 border-white dark:border-gray-800 shadow-md">
-                  {userProfile?.image ? (
+                  {userProfile?.avatar ? (
                     <Image
-                      src={userProfile.image}
+                      src={userProfile.avatar}
                       alt="Profile"
                       width={128}
                       height={128}
@@ -162,7 +162,7 @@ const ProfilePage = () => {
                       My Submissions
                     </button>
                   </li>
-                  {userProfile?.role === "Judge" && (
+                  {userProfile?.role === "ADMIN" && (
                     <li>
                       <button
                         onClick={() => setActiveTab("judging")}
@@ -238,13 +238,13 @@ const ProfilePage = () => {
                     <div>
                       <label className="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Account Created</label>
                       <p className="text-gray-900 dark:text-white font-medium">
-                        {userProfile?.createdAt ? new Date(userProfile.createdAt).toLocaleDateString() : "-"}
+                        {/* {userProfile?.createdAt ? new Date(userProfile.createdAt).toLocaleDateString() : "-"} */}
                       </p>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Phone</label>
                       <p className="text-gray-900 dark:text-white font-medium">
-                        {userProfile?.phone || "-"}
+                        {/* {userProfile?.phone || "-"} */}
                       </p>
                     </div>
                     <div>
@@ -256,19 +256,19 @@ const ProfilePage = () => {
                     </div>
                   </div>
 
-                  {userProfile?.bio && (
+                  {/* {userProfile?.bio && (
                     <div className="mt-6">
                       <label className="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Bio</label>
                       <p className="text-gray-900 dark:text-white">{userProfile.bio}</p>
-                    </div>
-                  )}
+                    </div> */}
+                  
                 </div>
 
                 {/* Skills */}
                 <div className="mb-6">
                   <h3 className="text-md font-semibold text-gray-900 dark:text-white mb-3">Skills & Technologies</h3>
                   <div className="flex flex-wrap gap-2">
-                    {userProfile?.skills?.length ? (
+                    {/* {userProfile?.skills?.length ? (
                       userProfile.skills.map((skill, index) => (
                         <span
                           key={index}
@@ -279,14 +279,14 @@ const ProfilePage = () => {
                       ))
                     ) : (
                       <p className="text-gray-500 dark:text-gray-400 text-sm">No skills added yet</p>
-                    )}
+                    )} */}
                   </div>
                 </div>
 
                 {/* Past participation */}
                 <div>
                   <h3 className="text-md font-semibold text-gray-900 dark:text-white mb-3">Past Hackathons</h3>
-                  {userProfile?.pastEvents?.length ? (
+                  {/* {userProfile?.pastEvents?.length ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {userProfile.pastEvents.map((event, index) => (
                         <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
@@ -298,7 +298,7 @@ const ProfilePage = () => {
                     </div>
                   ) : (
                     <p className="text-gray-500 dark:text-gray-400 text-sm">No past hackathons</p>
-                  )}
+                  )} */}
                 </div>
               </>
             )}
@@ -374,7 +374,7 @@ const ProfilePage = () => {
               <div>
                 <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-6">My Submissions</h2>
                 
-                {userProfile?.submissions?.length ? (
+                {/* {userProfile?.submissions?.length ? (
                   <div className="space-y-4">
                     {userProfile.submissions.map((submission, index) => (
                       <div key={index} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
@@ -412,7 +412,7 @@ const ProfilePage = () => {
                       You haven&apos;t made any submissions yet.
                     </p>
                   </div>
-                )}
+                )} */}
               </div>
             )}
 
