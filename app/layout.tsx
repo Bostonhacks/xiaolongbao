@@ -16,9 +16,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BostonHacks Judging Portal",
-  description: "Judging portal for BostonHacks",
+  title: {
+    default: 'Xiaolongbao | BostonHacks Judging Site',
+    template: '%s | Xiaolongbao'
+  },
+  description: "BostonHacks Judging Site",
+  keywords: ["bostonhacks", "judging", "site", "hackathon", "projects"],
+  openGraph: {
+    title: 'Xiaolongbao',
+    description: 'BostonHacks Judging Site',
+    url: 'https://judging.bostonhacks.org',
+    siteName: 'Xiaolongbao',
+    // images: [
+    //   {
+    //     url: 'https://yourdomain.com/og-image.jpg',
+    //     width: 1200,
+    //     height: 630
+    //   }
+    // ],
+    locale: 'en_US',
+    type: 'website'
+  }
 };
+
 
 export default function RootLayout({
   children,
