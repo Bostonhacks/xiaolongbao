@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+// import { NextResponse } from "next/server";
 
 
 
@@ -18,14 +18,14 @@ export async function GET() {
         });
 
         if (!response.ok) {
-            return new Response(JSON.stringify(await response.json()), { status: 401 });
+            return Response.json(await response.json(), { status: 401 });
         }
 
         const user = await response.json();
 
-        return NextResponse.json(user);
+        return Response.json(user);
     } catch (error) {
         console.error('Failed to fetch user data:', error);
-        return NextResponse.json(error);
+        return Response.json(error);
     }
 }

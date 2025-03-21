@@ -1,7 +1,7 @@
 
 
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+// import { NextResponse } from "next/server";
 
 // GET /api/judging/judges
 
@@ -24,11 +24,11 @@ export async function GET() {
 
         const judges = await response.json();
 
-        return NextResponse.json(judges);
+        return Response.json(judges);
 
 
     } catch (err) {
         console.error('Failed to fetch judges:', err);
-        return NextResponse.json(err);
+        return Response.json(err);
     }
 }

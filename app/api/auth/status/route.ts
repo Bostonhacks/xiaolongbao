@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+// import { NextResponse } from "next/server";
 import { cookies } from 'next/headers';
 
 export async function GET() {
@@ -7,7 +7,7 @@ export async function GET() {
     const accessToken = cookieStore.get('access_token');
 
     if (!accessToken?.value) {
-      return NextResponse.json({ user: null, isAuthenticated: false });
+      return Response.json({ user: null, isAuthenticated: false });
     }
     
     // if (!accessToken) {
@@ -29,14 +29,14 @@ export async function GET() {
     
     // const userData = await response.json();
     
-    return NextResponse.json({
+    return Response.json({
     //   user: userData.user,
       isAuthenticated: true
     });
     
   } catch (error) {
     console.error('Error checking auth status:', error);
-    return NextResponse.json({ 
+    return Response.json({ 
       user: null, 
       isAuthenticated: false,
       error: 'Failed to check authentication status'
