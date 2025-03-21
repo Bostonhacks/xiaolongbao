@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 
 interface NavItem {
@@ -15,11 +15,13 @@ interface NavbarItemsProps {
 
 const NavbarItems = ({ linkGroups }: NavbarItemsProps) => {
 
-    const [activePath, setActivePath] = useState(usePathname() || "/");
-
-    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        setActivePath((e.target as HTMLAnchorElement)?.pathname);
-    }
+    const pathname = usePathname();
+    const [activePath, setActivePath] = useState(pathname || "/");
+    
+    // Update active path whenever the URL changes
+    useEffect(() => {
+        setActivePath(pathname);
+    }, [pathname]);
 
 
     return (
@@ -30,7 +32,6 @@ const NavbarItems = ({ linkGroups }: NavbarItemsProps) => {
                         <Link
                             key={item.path}
                             href={item.path}
-                            onClick={handleClick}
                             className={`block px-3 py-2 rounded-md text-sm font-medium ${
                                 activePath === item.path 
                                 ? "bg-secondary text-text-primary" 
