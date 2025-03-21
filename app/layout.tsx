@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: "BostonHacks Judging Site",
   keywords: ["bostonhacks", "judging", "site", "hackathon", "projects"],
   openGraph: {
-    title: 'Xiaolongbao',
+    title: 'Xiaolongbao | BostonHacks Judging Site',
     description: 'BostonHacks Judging Site',
     url: 'https://judging.bostonhacks.org',
     siteName: 'Xiaolongbao',
