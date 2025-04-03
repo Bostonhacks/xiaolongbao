@@ -37,7 +37,7 @@ async function getJudges(): Promise<Judge[]> {
     });
     if (response.ok) {
       judges = await response.json();
-      console.log(judges);
+      // console.log(judges);
     } else {
       judges = [] as Judge[];
       console.error("Failed to fetch judges");
