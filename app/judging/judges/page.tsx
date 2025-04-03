@@ -2,20 +2,22 @@ import JudgeStatus from '@/app/components/judging/JudgeStatus'
 import React from 'react'
 import { Metadata } from 'next'
 import Image from 'next/image';
+import { Judge } from '@/types/Judge';
+import { cookies } from 'next/headers';
 
 export const metadata: Metadata = {
   title: "Judging Panel | Judges",
   description: "Manage and view judges for the event",
 }
 
-interface Judge {
-  id: string;
-  name: string;
-  email?: string;
-  organization?: string;
-  avatar?: string;
-  judgedProjects?: number;
-}
+// interface Judge {
+//   id: string;
+//   name: string;
+//   email?: string;
+//   organization?: string;
+//   avatar?: string;
+//   judgedProjects?: number;
+// }
 
 async function getJudges(): Promise<Judge[]> {
   // In a real app, fetch from API:
@@ -25,9 +27,17 @@ async function getJudges(): Promise<Judge[]> {
   let judges: Judge[];
 
   try {
-    const response = await fetch("/api/judging/judges", { next: { revalidate: 300 } });
+    // Fetch judges from the backend API. Not using Router Handlers since this is a server component
+    const response = await fetch(`${process.env.API_URL}/judging/judges`, 
+      { next: { revalidate: 300 },
+      headers: {
+        // Pass the access token from cookies to authenticate the request
+        "Cookie": `access_token=${(await cookies()).get('access_token')?.value || ""}`
+      }
+    });
     if (response.ok) {
       judges = await response.json();
+      console.log(judges);
     } else {
       judges = [] as Judge[];
       console.error("Failed to fetch judges");
@@ -37,9 +47,8 @@ async function getJudges(): Promise<Judge[]> {
     return judges;
 
   } catch(err) {
-    return new Promise((resolve, reject) => {
-      resolve(judges);
-    })
+    console.log(err);
+    return [] as Judge[];
   }
   
 
@@ -86,17 +95,21 @@ export default async function JudgesPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-          {judges?.map((judge) => (
-            <div 
-              key={judge.id}
-              className="bg-secondary rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow duration-300"
-            >
+          {judges?.map((judge) => {
+            const user = judge?.user || {};
+            return (
+              <div 
+                key={user.id}
+                className="bg-secondary rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow duration-300"
+              >
               <div className="p-6">
                 <div className="flex items-center space-x-4">
-                  {judge.avatar ? (
+                  {user.avatar ? (
                     <Image 
-                      src={judge.avatar} 
-                      alt={judge.name}
+                      src={user.avatar} 
+                      alt={user.firstName}
+                      width={150}
+                      height={150}
                       className="h-12 w-12 rounded-full object-cover" 
                     />
                   ) : (
@@ -104,10 +117,10 @@ export default async function JudgesPage() {
                     </div>
                   )}
                   <div>
-                    <h3 className="text-lg font-medium text-text-primary">{judge.name}</h3>
-                    {judge.organization && (
+                    <h3 className="text-lg font-medium text-text-primary">{user.firstName} {user.lastName}</h3>
+                    {/* {judge.organization && (
                       <p className="text-sm text-text-secondary">{judge.organization}</p>
-                    )}
+                    )} */}
                   </div>
                 </div>
                 
@@ -115,11 +128,11 @@ export default async function JudgesPage() {
                   <dl className="grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2">
                     <div className="sm:col-span-1">
                       <dt className="text-sm font-medium text-text-secondarysecondary">Email</dt>
-                      <dd className="mt-1 text-sm text-text-secondary truncate">{judge.email || 'N/A'}</dd>
+                      <dd className="mt-1 text-sm text-text-secondary truncate">{user.email || 'N/A'}</dd>
                     </div>
                     <div className="sm:col-span-1">
                       <dt className="text-sm font-medium text-text-secondary">Projects Judged</dt>
-                      <dd className="mt-1 text-sm text-text-secondary">{judge.judgedProjects || 0}</dd>
+                      {/* <dd className="mt-1 text-sm text-text-secondary">{user.judgedProjects || 0}</dd> */}
                     </div>
                   </dl>
                 </div>
@@ -134,7 +147,10 @@ export default async function JudgesPage() {
                 </div>
               </div>
             </div>
-          ))}
+
+            )
+            
+          })}
         </div>
 
         {judges?.length === 0 && (
@@ -191,7 +207,7 @@ export default async function JudgesPage() {
               Completed Evaluations
             </dt>
             <dd className="mt-1 text-3xl font-semibold text-text-primary">
-              {judges?.reduce((total, judge) => total + (judge.judgedProjects || 0), 0)}
+              {/* {judges?.reduce((total, judge) => total + (judge.judgedProjects || 0), 0)} */}
             </dd>
           </div>
         </div>
