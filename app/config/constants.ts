@@ -3,7 +3,9 @@
 export const protectedRoutes = [
     '/dashboard',
     '/profile',
-    '/settings'
+    '/settings',
+    "/judging",
+    "/projects"
 ];
 
 export const protectedRoutesMatcher = [

@@ -12,7 +12,7 @@ export async function GET() {
         const accessToken = cookieStore.get('access_token');
 
         // fetch judges from the database
-        const response = await fetch(`${process.env.API_URL}/judges`, {
+        const response = await fetch(`${process.env.API_URL}/judging/judges`, {
             headers: {
                 "Cookie": `access_token=${accessToken?.value || ""}`
             }

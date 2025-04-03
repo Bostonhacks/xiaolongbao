@@ -4,9 +4,11 @@
   /* default dark theme */
   --color-primary: #1a202c;
   --color-text-primary: white;
+  --color-text-secondary: #9ba0a3;
   --color-secondary: #2d3748;
   --color-tertiary: #4a5568;
   --color-accent: #63b3ed;
+  /* --color- */
   /* --font-sans: 'Inter', sans-serif; */
   --font-mono: 'Fira Code', monospace;
 }

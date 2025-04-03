@@ -49,3 +49,6 @@ Auth goes as follows.
    1. The user's data is held in sessionStorage
    2. This user can then be accessed anywhere using the "user" variable of the auth context.
    3. Auth context is handled via a client component which wraps as a provider children components.
+
+# Structure
+This uses a BFF (Backend for frontend). For all client components, api calls are made through Next Route handlers. When fetching data/updating data with a server component or action, those are called directly 
